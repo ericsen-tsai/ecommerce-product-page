@@ -4,6 +4,8 @@
   display: flex;
   align-items: center;
 
+  border-bottom: 0.01rem solid rgba($clr-neutral-6, 0.1);
+
   &__img-box {
     position: relative;
 
@@ -13,8 +15,19 @@
       margin-left: auto;
     }
 
+    &--logo {
+      @include respond(tab-port) {
+        order: -1;
+        margin-left: 0rem;
+      }
+    }
+
     &:last-child {
       margin-right: 1rem;
+
+      @include respond(tab-port) {
+        margin-right: 0rem;
+      }
     }
   }
 
@@ -34,6 +47,17 @@
       width: auto;
       height: 2rem;
       margin-left: -1rem;
+    }
+
+    &--avatar {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      border: 0.1rem solid transparent;
+
+      &:hover {
+        border: 0.1rem solid $clr-primary-1;
+      }
     }
   }
 

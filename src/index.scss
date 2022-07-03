@@ -9,6 +9,14 @@
 html {
   box-sizing: border-box;
   font-size: 50%;
+
+  @include respond(tab-port) {
+    font-size: 57.25%;
+  }
+
+  @include respond(normal-desktop) {
+    font-size: 62.5%;
+  }
 }
 
 body {
