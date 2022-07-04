@@ -1,13 +1,19 @@
-import React from "react"
+import React, { useRef } from "react"
+
+import { useClickOutsideToClose } from "../hooks/useClickOutsideToClose"
 
 import Thumbnail from "../images/image-product-1-thumbnail.jpg"
 import GarbageCan from "../images/icon-delete.svg"
 
 import "./CartPopup.scss"
 
-const CartPopup = ({ quantity, setQuantity }: CartPopupProps) => {
+const CartPopup = ({ quantity, setQuantity, setIsOpen }: CartPopupProps) => {
+  const popupRef = useRef(null)
+
+  useClickOutsideToClose(popupRef, setIsOpen)
+
   return (
-    <div className="cart-popup">
+    <div className="cart-popup" ref={popupRef}>
       <div className="cart-popup__text-box">
         <h5 className="cart-popup__text">Cart</h5>
       </div>
@@ -59,6 +65,7 @@ const CartPopup = ({ quantity, setQuantity }: CartPopupProps) => {
 interface CartPopupProps {
   quantity: number
   setQuantity: React.Dispatch<React.SetStateAction<number>>
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default CartPopup

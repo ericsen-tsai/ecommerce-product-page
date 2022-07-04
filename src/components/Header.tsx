@@ -57,6 +57,7 @@ const Header = () => {
         <CartPopup
           quantity={productQuantity}
           setQuantity={setProductQuantity}
+          setIsOpen={setIsPopupOpen}
         />
       )}
     </header>
