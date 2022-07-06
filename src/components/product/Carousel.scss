@@ -1,7 +1,9 @@
 .carousel {
+  position: absolute;
   width: 100%;
 
   @include respond(tab-port) {
+    position: initial;
     flex: 0 0 50%;
   }
 
@@ -71,7 +73,7 @@
     cursor: pointer;
 
     @include respond(tab-port) {
-      top: 40%;
+      top: 37%;
     }
 
     &--backward {
