@@ -1,0 +1,12 @@
+.product {
+  width: 100%;
+  height: 150vh;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    display: flex;
+
+    width: 90%;
+    margin-top: 10rem;
+  }
+}

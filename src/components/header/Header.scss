@@ -59,6 +59,10 @@
         border: 0.1rem solid $clr-primary-1;
       }
     }
+
+    &--opened {
+      filter: brightness(0) saturate(100%);
+    }
   }
 
   &__quantity {

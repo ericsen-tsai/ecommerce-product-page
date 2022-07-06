@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction } from "react"
-import Close from "../images/icon-close.svg"
+import React from "react"
+import Close from "../../images/icon-close.svg"
 
 import "./Navbar.scss"
 
@@ -8,7 +8,7 @@ const pages: string[] = ["Collections", "Men", "Women", "About", "Contact"]
 const Navbar = ({
   toggleOpen,
 }: {
-  toggleOpen: Dispatch<SetStateAction<boolean>>
+  toggleOpen: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   const navItems = pages.map((page) => {
     return (

@@ -1,0 +1,161 @@
+.carousel {
+  width: 100%;
+
+  @include respond(tab-port) {
+    flex: 0 0 50%;
+  }
+
+  &__modal {
+    @include respond(tab-port) {
+      position: fixed;
+      z-index: 500;
+      top: 0;
+      left: 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+
+      width: 100%;
+      height: 100%;
+
+      background-color: rgba($clr-neutral-6, 0.7);
+    }
+
+    & .grid {
+      margin-top: 3rem;
+      width: 40rem;
+    }
+  }
+
+  &__modal-close {
+    transform: translateX(27rem);
+
+    width: 2rem;
+    height: 2rem;
+    margin-top: 6rem;
+
+    cursor: pointer;
+    &:hover {
+      filter: invert(58%) sepia(24%) saturate(3537%) hue-rotate(345deg)
+        brightness(99%) contrast(105%);
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include respond(tab-port) {
+      width: 55rem;
+      border-radius: 2rem;
+    }
+  }
+
+  &__roll {
+    position: absolute;
+    top: 50%;
+    z-index: 200;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+
+    width: 5rem;
+    height: 5rem;
+    padding: 1.5rem 1.8rem;
+    border-radius: 50%;
+
+    background-color: $clr-neutral-5;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      top: 40%;
+    }
+
+    &--backward {
+      left: 1.8rem;
+
+      @include respond(tab-port) {
+        left: calc(50% - 27.5rem);
+        transform: translateX(-50%);
+      }
+    }
+    &--forward {
+      right: 1.8rem;
+
+      @include respond(tab-port) {
+        right: calc(50% - 27.5rem);
+        transform: translateX(50%);
+      }
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__display {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  &__img-box {
+    position: relative;
+
+    justify-self: center;
+    align-self: center;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+
+    &--main {
+      grid-row: 1 / -2;
+      grid-column: 1 / -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 150;
+
+      display: none;
+      transform: translate(-50%, -50%);
+
+      width: 101%;
+      height: 100%;
+      border-radius: 1.5rem;
+
+      background-color: rgba(#fff, 0.6);
+    }
+
+    &:hover::after,
+    &--selected::after {
+      display: inline-block;
+    }
+
+    &--selected::after {
+      border: 0.4rem solid $clr-primary-1;
+    }
+  }
+
+  &__img {
+    margin: auto 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+  }
+}

@@ -4,10 +4,10 @@ import { useMediaQuery } from "react-responsive"
 import Navbar from "./Navbar"
 import CartPopup from "./CartPopup"
 
-import Hamburger from "../images/icon-menu.svg"
-import Logo from "../images/logo.svg"
-import Cart from "../images/icon-cart.svg"
-import Avatar from "../images/image-avatar.png"
+import Hamburger from "../../images/icon-menu.svg"
+import Logo from "../../images/logo.svg"
+import Cart from "../../images/icon-cart.svg"
+import Avatar from "../../images/image-avatar.png"
 
 import "./Header.scss"
 
@@ -37,7 +37,7 @@ const Header = () => {
         <img
           src={Cart}
           alt="cart"
-          className="header__img"
+          className={`header__img ${isPopupOpen ? "header__img--opened" : ""}`}
           onClick={() => setIsPopupOpen(!isPopupOpen)}
         />
         {productQuantity === 0 ? (

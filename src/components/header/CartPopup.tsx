@@ -1,9 +1,9 @@
 import React, { useRef } from "react"
 
-import { useClickOutsideToClose } from "../hooks/useClickOutsideToClose"
+import { useClickOutsideToClose } from "../../hooks/useClickOutsideToClose"
 
-import Thumbnail from "../images/image-product-1-thumbnail.jpg"
-import GarbageCan from "../images/icon-delete.svg"
+import Thumbnail from "../../images/image-product-1-thumbnail.jpg"
+import GarbageCan from "../../images/icon-delete.svg"
 
 import "./CartPopup.scss"
 
