@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
 
+import { useQuantityContext } from "../../context/QuantityContext"
+
 import Navbar from "./Navbar"
 import CartPopup from "./CartPopup"
 
@@ -15,7 +17,7 @@ const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false)
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false)
   const isPhone: boolean = useMediaQuery({ query: "(max-width: 37.5em)" })
-  const [productQuantity, setProductQuantity] = useState<number>(1)
+  const { quantity, setQuantity } = useQuantityContext()
 
   return (
     <header className="header">
@@ -40,10 +42,10 @@ const Header = () => {
           className={`header__img ${isPopupOpen ? "header__img--opened" : ""}`}
           onClick={() => setIsPopupOpen(!isPopupOpen)}
         />
-        {productQuantity === 0 ? (
+        {quantity === 0 ? (
           <></>
         ) : (
-          <p className="header__quantity">{productQuantity}</p>
+          <p className="header__quantity">{quantity}</p>
         )}
       </div>
       <div className="header__img-box header__img-box--avatar">
@@ -55,8 +57,8 @@ const Header = () => {
       </div>
       {isPopupOpen && (
         <CartPopup
-          quantity={productQuantity}
-          setQuantity={setProductQuantity}
+          quantity={quantity}
+          setQuantity={setQuantity}
           setIsOpen={setIsPopupOpen}
         />
       )}

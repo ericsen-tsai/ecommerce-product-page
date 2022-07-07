@@ -1,3 +1,5 @@
+import QuantityProvider from "./context/QuantityContext"
+
 import Header from "./components/header/Header"
 import Product from "./components/product/Product"
 import "./App.scss"
@@ -5,8 +7,10 @@ import "./App.scss"
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Product />
+      <QuantityProvider>
+        <Header />
+        <Product />
+      </QuantityProvider>
     </div>
   )
 }

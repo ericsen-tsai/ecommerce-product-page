@@ -1,4 +1,5 @@
 import Carousel from "./Carousel"
+import Details from "./Details"
 
 import "./Product.scss"
 
@@ -6,7 +7,7 @@ const Product = () => {
   return (
     <div className="product">
       <Carousel />
-      <div>details</div>
+      <Details />
     </div>
   )
 }
